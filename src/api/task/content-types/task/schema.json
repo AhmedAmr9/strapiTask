@@ -37,10 +37,10 @@
       "required": false
     },
     "fromm": {
-      "type": "time"
+      "type": "string"
     },
     "too": {
-      "type": "time",
+      "type": "string",
       "required": false
     },
     "task_No": {
