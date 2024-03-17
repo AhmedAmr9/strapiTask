@@ -362,6 +362,63 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiEmpEmp extends Schema.CollectionType {
+  collectionName: 'emps';
+  info: {
+    singularName: 'emp';
+    pluralName: 'emps';
+    displayName: 'emp';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    userName: Attribute.String & Attribute.Required;
+    password: Attribute.String & Attribute.Required;
+    role: Attribute.String & Attribute.Required;
+    code: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::emp.emp', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::emp.emp', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTaskTask extends Schema.CollectionType {
+  collectionName: 'tasks';
+  info: {
+    singularName: 'task';
+    pluralName: 'tasks';
+    displayName: 'task';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    task_Name: Attribute.String;
+    department: Attribute.String;
+    responsible: Attribute.String;
+    task_des_link: Attribute.String;
+    type: Attribute.String;
+    days: Attribute.String;
+    fromm: Attribute.String;
+    too: Attribute.String;
+    task_No: Attribute.Integer & Attribute.Unique;
+    status: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::task.task', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::task.task', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -788,63 +845,6 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
-export interface ApiEmpEmp extends Schema.CollectionType {
-  collectionName: 'emps';
-  info: {
-    singularName: 'emp';
-    pluralName: 'emps';
-    displayName: 'emp';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    userName: Attribute.String & Attribute.Required;
-    password: Attribute.String & Attribute.Required;
-    role: Attribute.String & Attribute.Required;
-    code: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::emp.emp', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::emp.emp', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTaskTask extends Schema.CollectionType {
-  collectionName: 'tasks';
-  info: {
-    singularName: 'task';
-    pluralName: 'tasks';
-    displayName: 'task';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    task_Name: Attribute.String;
-    department: Attribute.String;
-    responsible: Attribute.String;
-    task_des_link: Attribute.String;
-    type: Attribute.String;
-    days: Attribute.String;
-    fromm: Attribute.String;
-    too: Attribute.String;
-    task_No: Attribute.Integer & Attribute.Unique;
-    status: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::task.task', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::task.task', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -855,6 +855,8 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::emp.emp': ApiEmpEmp;
+      'api::task.task': ApiTaskTask;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -863,8 +865,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
-      'api::emp.emp': ApiEmpEmp;
-      'api::task.task': ApiTaskTask;
     }
   }
 }
