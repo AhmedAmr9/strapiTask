@@ -362,63 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiEmpEmp extends Schema.CollectionType {
-  collectionName: 'emps';
-  info: {
-    singularName: 'emp';
-    pluralName: 'emps';
-    displayName: 'emp';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    userName: Attribute.String & Attribute.Required;
-    password: Attribute.String & Attribute.Required;
-    role: Attribute.String & Attribute.Required;
-    code: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::emp.emp', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::emp.emp', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTaskTask extends Schema.CollectionType {
-  collectionName: 'tasks';
-  info: {
-    singularName: 'task';
-    pluralName: 'tasks';
-    displayName: 'task';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    task_Name: Attribute.String;
-    department: Attribute.String;
-    responsible: Attribute.String;
-    task_des_link: Attribute.String;
-    type: Attribute.String;
-    days: Attribute.String;
-    fromm: Attribute.String;
-    too: Attribute.String;
-    task_No: Attribute.Integer & Attribute.Unique;
-    status: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::task.task', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::task.task', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -845,6 +788,188 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiBasicBasic extends Schema.CollectionType {
+  collectionName: 'basics';
+  info: {
+    singularName: 'basic';
+    pluralName: 'basics';
+    displayName: 'Basic';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    studentnum: Attribute.Integer & Attribute.Required & Attribute.Unique;
+    name: Attribute.String & Attribute.Required;
+    scholarship: Attribute.String & Attribute.Required;
+    phone: Attribute.String;
+    email: Attribute.Email;
+    careertype: Attribute.String;
+    grade: Attribute.String;
+    reservation_case: Attribute.String;
+    reservation_date: Attribute.String;
+    study_type: Attribute.String;
+    called_by: Attribute.String;
+    recp: Attribute.String;
+    reserver: Attribute.String;
+    birth_date: Attribute.Date;
+    schadule: Attribute.String;
+    payments: Attribute.String;
+    papers: Attribute.String;
+    requests: Attribute.String;
+    complaints: Attribute.String;
+    image: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::basic.basic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::basic.basic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEmpEmp extends Schema.CollectionType {
+  collectionName: 'emps';
+  info: {
+    singularName: 'emp';
+    pluralName: 'emps';
+    displayName: 'emp';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    userName: Attribute.String & Attribute.Required;
+    password: Attribute.String & Attribute.Required;
+    role: Attribute.String & Attribute.Required;
+    code: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::emp.emp', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::emp.emp', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTaskTask extends Schema.CollectionType {
+  collectionName: 'tasks';
+  info: {
+    singularName: 'task';
+    pluralName: 'tasks';
+    displayName: 'task';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    task_Name: Attribute.String;
+    department: Attribute.String;
+    responsible: Attribute.String;
+    task_des_link: Attribute.String;
+    type: Attribute.String;
+    days: Attribute.String;
+    fromm: Attribute.String;
+    too: Attribute.String;
+    task_No: Attribute.Integer & Attribute.Unique;
+    status: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::task.task', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::task.task', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTaskReportTaskReport extends Schema.CollectionType {
+  collectionName: 'task_reports';
+  info: {
+    singularName: 'task-report';
+    pluralName: 'task-reports';
+    displayName: 'task_report';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    task_No: Attribute.Integer;
+    task_completion: Attribute.Integer;
+    emp: Attribute.String;
+    note: Attribute.String;
+    report: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::task-report.task-report',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::task-report.task-report',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTodayTaskTodayTask extends Schema.CollectionType {
+  collectionName: 'today_tasks';
+  info: {
+    singularName: 'today-task';
+    pluralName: 'today-tasks';
+    displayName: 'today_task';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    task_No: Attribute.Integer;
+    task_Name: Attribute.String;
+    department: Attribute.String;
+    responsible: Attribute.String;
+    task_des_link: Attribute.String;
+    type: Attribute.String;
+    days: Attribute.String;
+    fromm: Attribute.String;
+    too: Attribute.String;
+    Time_Bef_End: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::today-task.today-task',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::today-task.today-task',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -855,8 +980,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::emp.emp': ApiEmpEmp;
-      'api::task.task': ApiTaskTask;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -865,6 +988,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::basic.basic': ApiBasicBasic;
+      'api::emp.emp': ApiEmpEmp;
+      'api::task.task': ApiTaskTask;
+      'api::task-report.task-report': ApiTaskReportTaskReport;
+      'api::today-task.today-task': ApiTodayTaskTodayTask;
     }
   }
 }
