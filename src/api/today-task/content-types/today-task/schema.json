@@ -41,6 +41,18 @@
     },
     "Time_Bef_End": {
       "type": "string"
+    },
+    "task_completion": {
+      "type": "integer"
+    },
+    "emp": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "report": {
+      "type": "string"
     }
   }
 }

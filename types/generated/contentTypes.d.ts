@@ -800,11 +800,10 @@ export interface ApiBasicBasic extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    studentnum: Attribute.Integer & Attribute.Required & Attribute.Unique;
-    name: Attribute.String & Attribute.Required;
-    scholarship: Attribute.String & Attribute.Required;
+    studentnum: Attribute.Integer & Attribute.Unique;
+    name: Attribute.String;
+    scholarship: Attribute.String;
     phone: Attribute.String;
-    email: Attribute.Email;
     careertype: Attribute.String;
     grade: Attribute.String;
     reservation_case: Attribute.String;
@@ -813,13 +812,15 @@ export interface ApiBasicBasic extends Schema.CollectionType {
     called_by: Attribute.String;
     recp: Attribute.String;
     reserver: Attribute.String;
-    birth_date: Attribute.Date;
+    birth_date: Attribute.String;
     schadule: Attribute.String;
     payments: Attribute.String;
     papers: Attribute.String;
     requests: Attribute.String;
     complaints: Attribute.String;
     image: Attribute.String;
+    national_id: Attribute.String;
+    email: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -952,6 +953,10 @@ export interface ApiTodayTaskTodayTask extends Schema.CollectionType {
     fromm: Attribute.String;
     too: Attribute.String;
     Time_Bef_End: Attribute.String;
+    task_completion: Attribute.Integer;
+    emp: Attribute.String;
+    note: Attribute.String;
+    report: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
