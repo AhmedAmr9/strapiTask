@@ -797,7 +797,7 @@ export interface ApiBasicBasic extends Schema.CollectionType {
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     studentnum: Attribute.Integer & Attribute.Unique;
@@ -823,7 +823,6 @@ export interface ApiBasicBasic extends Schema.CollectionType {
     email: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::basic.basic',
       'oneToOne',
@@ -839,12 +838,63 @@ export interface ApiBasicBasic extends Schema.CollectionType {
   };
 }
 
+export interface ApiBasicTestBasicTest extends Schema.CollectionType {
+  collectionName: 'basic_tests';
+  info: {
+    singularName: 'basic-test';
+    pluralName: 'basic-tests';
+    displayName: 'BasicTest';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    studentnum: Attribute.Integer;
+    name: Attribute.String;
+    scholarship: Attribute.String;
+    phone: Attribute.String;
+    careertype: Attribute.String;
+    grade: Attribute.String;
+    reservation_case: Attribute.String;
+    reservation_date: Attribute.String;
+    study_type: Attribute.String;
+    called_by: Attribute.String;
+    recp: Attribute.String;
+    reserver: Attribute.String;
+    birth_date: Attribute.String;
+    schadule: Attribute.String;
+    payments: Attribute.String;
+    papers: Attribute.String;
+    requests: Attribute.String;
+    complaints: Attribute.String;
+    image: Attribute.String;
+    national_id: Attribute.String;
+    email: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::basic-test.basic-test',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::basic-test.basic-test',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEmpEmp extends Schema.CollectionType {
   collectionName: 'emps';
   info: {
     singularName: 'emp';
     pluralName: 'emps';
     displayName: 'emp';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -854,6 +904,7 @@ export interface ApiEmpEmp extends Schema.CollectionType {
     password: Attribute.String & Attribute.Required;
     role: Attribute.String & Attribute.Required;
     code: Attribute.String & Attribute.Required;
+    department: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -994,6 +1045,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::basic.basic': ApiBasicBasic;
+      'api::basic-test.basic-test': ApiBasicTestBasicTest;
       'api::emp.emp': ApiEmpEmp;
       'api::task.task': ApiTaskTask;
       'api::task-report.task-report': ApiTaskReportTaskReport;

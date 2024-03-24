@@ -1,33 +1,27 @@
 {
   "kind": "collectionType",
-  "collectionName": "basics",
+  "collectionName": "basic_tests",
   "info": {
-    "singularName": "basic",
-    "pluralName": "basics",
-    "displayName": "Basic",
-    "description": ""
+    "singularName": "basic-test",
+    "pluralName": "basic-tests",
+    "displayName": "BasicTest"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
     "studentnum": {
-      "type": "integer",
-      "required": false,
-      "unique": true
+      "type": "integer"
     },
     "name": {
-      "type": "string",
-      "required": false
+      "type": "string"
     },
     "scholarship": {
-      "type": "string",
-      "required": false
+      "type": "string"
     },
     "phone": {
-      "type": "string",
-      "required": false
+      "type": "string"
     },
     "careertype": {
       "type": "string"

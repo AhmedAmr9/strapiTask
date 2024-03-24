@@ -4,7 +4,8 @@
   "info": {
     "singularName": "emp",
     "pluralName": "emps",
-    "displayName": "emp"
+    "displayName": "emp",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,6 +27,10 @@
     "code": {
       "type": "string",
       "required": true
+    },
+    "department": {
+      "type": "string",
+      "required": false
     }
   }
 }
