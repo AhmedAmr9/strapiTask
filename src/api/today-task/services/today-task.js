@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * today service
+ * today-task service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::today.today');
+module.exports = createCoreService('api::today-task.today-task');

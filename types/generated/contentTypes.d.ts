@@ -982,13 +982,12 @@ export interface ApiTaskReportTaskReport extends Schema.CollectionType {
   };
 }
 
-export interface ApiTodayToday extends Schema.CollectionType {
-  collectionName: 'todays';
+export interface ApiTodayTaskTodayTask extends Schema.CollectionType {
+  collectionName: 'today_tasks';
   info: {
-    singularName: 'today';
-    pluralName: 'todays';
-    displayName: 'today';
-    description: '';
+    singularName: 'today-task';
+    pluralName: 'today-tasks';
+    displayName: 'today_task';
   };
   options: {
     draftAndPublish: false;
@@ -1010,13 +1009,13 @@ export interface ApiTodayToday extends Schema.CollectionType {
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::today.today',
+      'api::today-task.today-task',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::today.today',
+      'api::today-task.today-task',
       'oneToOne',
       'admin::user'
     > &
@@ -1047,7 +1046,7 @@ declare module '@strapi/types' {
       'api::emp.emp': ApiEmpEmp;
       'api::task.task': ApiTaskTask;
       'api::task-report.task-report': ApiTaskReportTaskReport;
-      'api::today.today': ApiTodayToday;
+      'api::today-task.today-task': ApiTodayTaskTodayTask;
     }
   }
 }

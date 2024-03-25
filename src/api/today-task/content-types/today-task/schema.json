@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "todays",
+  "collectionName": "today_tasks",
   "info": {
-    "singularName": "today",
-    "pluralName": "todays",
-    "displayName": "today",
-    "description": ""
+    "singularName": "today-task",
+    "pluralName": "today-tasks",
+    "displayName": "today_task"
   },
   "options": {
     "draftAndPublish": false
