@@ -964,6 +964,7 @@ export interface ApiTaskReportTaskReport extends Schema.CollectionType {
     emp: Attribute.String;
     note: Attribute.String;
     report: Attribute.String;
+    task_found: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -988,6 +989,7 @@ export interface ApiTodayTaskTodayTask extends Schema.CollectionType {
     singularName: 'today-task';
     pluralName: 'today-tasks';
     displayName: 'today_task';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1006,6 +1008,7 @@ export interface ApiTodayTaskTodayTask extends Schema.CollectionType {
     emp: Attribute.String;
     note: Attribute.String;
     report: Attribute.String;
+    task_found: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

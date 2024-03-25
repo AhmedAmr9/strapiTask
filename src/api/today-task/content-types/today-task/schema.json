@@ -4,7 +4,8 @@
   "info": {
     "singularName": "today-task",
     "pluralName": "today-tasks",
-    "displayName": "today_task"
+    "displayName": "today_task",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -48,6 +49,9 @@
       "type": "string"
     },
     "report": {
+      "type": "string"
+    },
+    "task_found": {
       "type": "string"
     }
   }

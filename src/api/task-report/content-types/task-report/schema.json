@@ -26,6 +26,9 @@
     },
     "report": {
       "type": "string"
+    },
+    "task_found": {
+      "type": "string"
     }
   }
 }
