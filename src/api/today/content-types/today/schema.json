@@ -1,21 +1,21 @@
 {
   "kind": "collectionType",
-  "collectionName": "today_tasks",
+  "collectionName": "todays",
   "info": {
-    "singularName": "today-task",
-    "pluralName": "today-tasks",
-    "displayName": "today_task",
+    "singularName": "today",
+    "pluralName": "todays",
+    "displayName": "today",
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "task_No": {
+    "task_no": {
       "type": "integer"
     },
-    "task_Name": {
+    "task_name": {
       "type": "string"
     },
     "department": {
@@ -37,9 +37,6 @@
       "type": "string"
     },
     "too": {
-      "type": "string"
-    },
-    "Time_Bef_End": {
       "type": "string"
     },
     "task_completion": {

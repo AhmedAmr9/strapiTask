@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * today-task controller
+ * today controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::today-task.today-task');
+module.exports = createCoreController('api::today.today');

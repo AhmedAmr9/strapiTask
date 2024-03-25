@@ -982,20 +982,20 @@ export interface ApiTaskReportTaskReport extends Schema.CollectionType {
   };
 }
 
-export interface ApiTodayTaskTodayTask extends Schema.CollectionType {
-  collectionName: 'today_tasks';
+export interface ApiTodayToday extends Schema.CollectionType {
+  collectionName: 'todays';
   info: {
-    singularName: 'today-task';
-    pluralName: 'today-tasks';
-    displayName: 'today_task';
+    singularName: 'today';
+    pluralName: 'todays';
+    displayName: 'today';
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
-    task_No: Attribute.Integer;
-    task_Name: Attribute.String;
+    task_no: Attribute.Integer;
+    task_name: Attribute.String;
     department: Attribute.String;
     responsible: Attribute.String;
     task_des_link: Attribute.String;
@@ -1003,22 +1003,20 @@ export interface ApiTodayTaskTodayTask extends Schema.CollectionType {
     days: Attribute.String;
     fromm: Attribute.String;
     too: Attribute.String;
-    Time_Bef_End: Attribute.String;
     task_completion: Attribute.Integer;
     emp: Attribute.String;
     note: Attribute.String;
     report: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::today-task.today-task',
+      'api::today.today',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::today-task.today-task',
+      'api::today.today',
       'oneToOne',
       'admin::user'
     > &
@@ -1049,7 +1047,7 @@ declare module '@strapi/types' {
       'api::emp.emp': ApiEmpEmp;
       'api::task.task': ApiTaskTask;
       'api::task-report.task-report': ApiTaskReportTaskReport;
-      'api::today-task.today-task': ApiTodayTaskTodayTask;
+      'api::today.today': ApiTodayToday;
     }
   }
 }
