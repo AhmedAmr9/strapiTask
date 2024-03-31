@@ -915,6 +915,42 @@ export interface ApiEmpEmp extends Schema.CollectionType {
   };
 }
 
+export interface ApiInvoiceInvoice extends Schema.CollectionType {
+  collectionName: 'invoices';
+  info: {
+    singularName: 'invoice';
+    pluralName: 'invoices';
+    displayName: 'Invoice';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    student_num: Attribute.Integer;
+    time_stamp: Attribute.String;
+    note: Attribute.String;
+    serial: Attribute.String;
+    amount: Attribute.Integer;
+    invoice_type: Attribute.String;
+    receptionist_reserver: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::invoice.invoice',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::invoice.invoice',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTaskTask extends Schema.CollectionType {
   collectionName: 'tasks';
   info: {
@@ -1047,6 +1083,7 @@ declare module '@strapi/types' {
       'api::basic.basic': ApiBasicBasic;
       'api::basic-test.basic-test': ApiBasicTestBasicTest;
       'api::emp.emp': ApiEmpEmp;
+      'api::invoice.invoice': ApiInvoiceInvoice;
       'api::task.task': ApiTaskTask;
       'api::task-report.task-report': ApiTaskReportTaskReport;
       'api::today-task.today-task': ApiTodayTaskTodayTask;
