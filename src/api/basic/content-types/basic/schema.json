@@ -79,6 +79,12 @@
     },
     "email": {
       "type": "string"
+    },
+    "cancel_Date": {
+      "type": "string"
+    },
+    "cancel_Reason": {
+      "type": "text"
     }
   }
 }

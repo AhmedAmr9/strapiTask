@@ -821,6 +821,8 @@ export interface ApiBasicBasic extends Schema.CollectionType {
     image: Attribute.String;
     national_id: Attribute.String;
     email: Attribute.String;
+    cancel_Date: Attribute.String;
+    cancel_Reason: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
