@@ -953,6 +953,36 @@ export interface ApiInvoiceInvoice extends Schema.CollectionType {
   };
 }
 
+export interface ApiProjectProject extends Schema.CollectionType {
+  collectionName: 'projects';
+  info: {
+    singularName: 'project';
+    pluralName: 'projects';
+    displayName: 'project';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTaskTask extends Schema.CollectionType {
   collectionName: 'tasks';
   info: {
@@ -1086,6 +1116,7 @@ declare module '@strapi/types' {
       'api::basic-test.basic-test': ApiBasicTestBasicTest;
       'api::emp.emp': ApiEmpEmp;
       'api::invoice.invoice': ApiInvoiceInvoice;
+      'api::project.project': ApiProjectProject;
       'api::task.task': ApiTaskTask;
       'api::task-report.task-report': ApiTaskReportTaskReport;
       'api::today-task.today-task': ApiTodayTaskTodayTask;
